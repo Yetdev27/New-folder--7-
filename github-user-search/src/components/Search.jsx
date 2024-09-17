@@ -12,9 +12,9 @@ const Search = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if (name === 'username') setUsername(value);
-    if (name === 'location') setLocation(value);
-    if (name === 'minRepos') setMinRepos(value);
+    if (name === 'username') setUsername(e.target.value);
+    if (name === 'location') setLocation(e.target.value);
+    if (name === 'minRepos') setMinRepos(e.target.value);
   };
 
   const handleFormSubmit = async (e) => {
