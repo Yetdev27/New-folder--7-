@@ -18,3 +18,4 @@ export const fetchUserData = async (username, location, minRepos) => {
     throw error;
   }
 };
+
