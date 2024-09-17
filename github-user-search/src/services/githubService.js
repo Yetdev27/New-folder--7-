@@ -3,7 +3,10 @@ import axios from 'axios';
 
 export const fetchUserData = async (username, location, minRepos) => {
   try {
-    const query = `q=${username}+location:${location}+repos:>${minRepos}`;
+    let query = `q=${username}`;
+    if (location) query += `+location:${location}`;
+    if (minRepos) query += `+repos:>${minRepos}`;
+
     const response = await axios.get(`https://api.github.com/search/users?${query}`, {
       headers: {
         Authorization: `token ${process.env.REACT_APP_GITHUB_API_KEY}`,
@@ -15,4 +18,3 @@ export const fetchUserData = async (username, location, minRepos) => {
     throw error;
   }
 };
-
